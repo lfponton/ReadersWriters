@@ -1,9 +1,9 @@
-public class SingleLaneBridge
+public class SingleLaneBridge implements Lane
 {
   private int waitingFromLeft, waitingFromRight;
   private int crossingFromLeft, crossingFromRight;
 
-  public synchronized void enterFromLeft() {
+  @Override public synchronized void enterFromTheLeft() {
     waitingFromLeft++;
     while (crossingFromRight > 0 || waitingFromRight > waitingFromLeft)
     {
@@ -28,7 +28,7 @@ public class SingleLaneBridge
     crossingFromLeft++;
   }
 
-  public synchronized void exitToTheRight() {
+  @Override public synchronized void exitToTheRight() {
     crossingFromLeft--;
     if (crossingFromLeft == 0)
     {
@@ -36,7 +36,7 @@ public class SingleLaneBridge
     }
   }
 
-  public synchronized void enterFromRight()
+  @Override public synchronized void enterFromTheRight()
   {
     waitingFromRight++;
     while (crossingFromLeft > 0 || waitingFromLeft > waitingFromRight)
@@ -62,7 +62,7 @@ public class SingleLaneBridge
     crossingFromRight++;
   }
 
-  public synchronized void exitToTheLeft()
+  @Override public synchronized void exitToTheLeft()
   {
     crossingFromRight--;
     if (crossingFromRight == 0)

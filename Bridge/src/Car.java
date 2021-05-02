@@ -16,14 +16,14 @@ public class Car implements Runnable
     while (true) {
       if (fromLeft) {
         System.out.println(name + " wants to cross the bridge from the LEFT");
-        bridge.enterFromLeft();
+        bridge.enterFromTheLeft();
         bridge.crossBridge(name);
         bridge.exitToTheRight();
         System.out.println(name + " exists bridge");
       }
       else {
         System.out.println(name + " wants to cross the bridge from the RIGHT");
-        bridge.enterFromRight();
+        bridge.enterFromTheRight();
         bridge.crossBridge(name);
         bridge.exitToTheLeft();
         System.out.println(name + " exists bridge");
