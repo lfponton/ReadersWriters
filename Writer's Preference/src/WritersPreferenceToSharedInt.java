@@ -44,11 +44,11 @@ public class WritersPreferenceToSharedInt
     notifyAll();
   }
 
-  public int readInt() {
+  public int read() {
     return sharedInt;
   }
 
-  public void incrementInt()
+  public void write()
   {
     sharedInt++;
   }
